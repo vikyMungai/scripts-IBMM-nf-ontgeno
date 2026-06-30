@@ -7,7 +7,7 @@
 #   $3: run id 
 #   $4: library (singular capital letter)
 #   $5: The column name of the type of raw data that will be given to the pipeline (i.e. 'fastq', 'fastq_folder' 'bam', look at nextflow_schema.json flie for all posiibilities) 
-#   $6: "true" if barcode's files are organised in "barcode[0-9]{2}" folders, "false" if there are no folders (like for bam files)
+#   $6: "true" if barcode's files are organised in "barcode[0-9]{2}" folders, "false" if there is only one file per folder 
 #   $7: genotype model, absolute path for the genotype model (optional)
 
 # Output 
@@ -23,34 +23,51 @@
 # fake command line 
 # ./format_samplelist.sh "/home/vittoria_ubuntu/vittoria_mungai_folder/SCN5A_patients_rbk114.24"  "/home/vittoria_ubuntu/vittoria_mungai_folder/sample_list_folder/samplelist.hac.csv" "run0" "A" "true" "/home/vittoria_ubuntu/vittoria_mungai_folder/fake_genotype_folder/fake_genotype_model.txt"
 
+
+### ---- maybe not necessary 
 fasta_file_list()
 {
+    BARCODE_FOLDERS="$1"
+    SAMPLELIST_FILE="$2"
+    RUN_ID="$3"
+    LIBRARY="$4"
+    GENOTYPE_MODEL="$5"
+    DATA_DIR="$7"
+
+    for BARCODE in $BARCODE_FOLDERS; do 
+   
+        if [ ! -z $GENOTYPE_MODEL ]; then 
+            echo "$BARCODE,$RUN_ID,$LIBRARY,$DATA_DIR/$BARCODE,$GENOTYPE_MODEL" >> "$SAMPLELIST_FILE"
+        else 
+            echo "$BARCODE,$RUN_ID,$LIBRARY,$DATA_DIR/$BARCODE" >> "$SAMPLELIST_FILE"
+        fi 
+        
+    done 
     
 }
+### ---- maybe not necessary 
 
-INPUT_DIR="$1"
+
+DATA_DIR="$1"
 SAMPLELIST_FILE="$2"
 RUN_ID="$3"
 LIBRARY="$4"
 DATA_TYPE="$5"
 FOLDERS_FLAG="$6"
-# echo "DB: numer of arguments $#"
+echo "DB: numer of arguments $#"
 
-if [ "$#" -eq 5 ]; then 
-    GENOTYPE_MODEL="$6"
+if [ "$#" -eq 6 ]; then 
+    GENOTYPE_MODEL="$7"
 fi
 
-cd $INPUT_DIR
+cd $DATA_DIR
 
 # column name of the fastq files depends on FOLDERS_FLAG variable 
 FASTQ_COL="$DATA_TYPE"
 
-# --old code 
-# if $FOLDERS_FLAG; then 
-#    FASTQ_COL="${DATA_TYPE}_folder"
-# fi 
-# -- end old code 
-
+if $FOLDERS_FLAG; then 
+   FASTQ_COL="${DATA_TYPE}_folder"
+fi 
 
 # printing the columns' name 
 if [ ! -z $GENOTYPE_MODEL ]; then 
@@ -60,26 +77,18 @@ else
 fi 
 
 # if each barcode has more than one .fastq.gz file, only the folder name is written in the samplelist.csv file 
-if $FOLDERS_FLAG; then 
-    BARCODE_FOLDERS=$(ls | grep -E 'barcode[0-9]+$')
+BARCODE_FOLDERS=$(ls | grep -E 'barcode[0-9]+$')
 
-    for BARCODE in $BARCODE_FOLDERS; do 
-   
-        if [ ! -z $GENOTYPE_MODEL ]; then 
-            echo "$BARCODE,$RUN_ID,$LIBRARY,$INPUT_DIR/$FILENAME,$GENOTYPE_MODEL" >> "$SAMPLELIST_FILE"
-        else 
-            echo "$BARCODE,$RUN_ID,$LIBRARY,$INPUT_DIR/$BARCODE" >> "$SAMPLELIST_FILE"
-        fi 
-        
-    done 
+for BARCODE in $BARCODE_FOLDERS; do 
 
-else
-    if [ $FASTQ_COL == 'bam' ]; then 
-
-    else  # TODO: implement how to list the .fastq.gz flies only 
-        echo "Fastq.gz list of files only, function not implemented"
+    if [ ! -z $GENOTYPE_MODEL ]; then 
+        echo "$BARCODE,$RUN_ID,$LIBRARY,$DATA_DIR/$BARCODE,$GENOTYPE_MODEL" >> "$SAMPLELIST_FILE"
+    else 
+        echo "$BARCODE,$RUN_ID,$LIBRARY,$DATA_DIR/$BARCODE" >> "$SAMPLELIST_FILE"
     fi 
-fi 
+    
+done 
+
 
 
 echo "${SAMPLELIST_FILE} created"
