@@ -31,7 +31,6 @@ RUN_ID="$3"
 LIBRARY="$4"
 DATA_TYPE="$5"
 FOLDERS_FLAG="$6"
-echo "DB: numer of arguments $@"
 
 if [ "$#" -eq 7 ]; then 
     GENOTYPE_MODEL="$7"
