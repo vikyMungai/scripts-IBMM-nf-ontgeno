@@ -1,0 +1,33 @@
+# General settings:
+#-----------------------
+outdir: "results/2026_07_14_ALPL_NF1_CYP19A1_phasing_NF1"
+
+# Sample details:
+#-----------------------
+input: "input/2026_07_14_ALPL_NF1_CYP19A1/samplelist.hac.csv"
+
+# References and intervals:
+#-----------------------
+fasta: "/home/user_ubuntu/data/references/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
+bed: "input/2026_07_14_ALPL_NF1_CYP19A1/region.alpl_nf1_cyp19a1.bed" 
+panel: "..." # add the panel  for NF1
+
+# Filter settings:
+#-----------------------
+min_length: 100
+trim_length: 0
+store_trimmed: false
+min_mapq: 20
+min_coverage: 10
+ # Workflow settings:
+#-----------------------
+basecalling_model: 'hac'
+genotype_model: "/home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/assets/r1041_e82_400bps_hac_v520" # check that the model used is correct 
+glnexus_config: "/home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/assets/clair3.yml"
+
+# Annotation settings:
+#-----------------------
+genome: 'GRCh38'
+species: 'homo_sapiens'
+vep_cache_version: 113
+vep_cache: "/home/user_ubuntu/data/references/vep"
