@@ -6,6 +6,8 @@ cd
 cd programs/micromamba/
 source bin/init.sh 
 micromamba activate nf-core
+cd 
+cd bioinformatic_pipelines/vittoria/
 ```
 
 to deactivate the environment use

@@ -4,9 +4,9 @@
 #   $1: input directory, where the barcode* folders are 
 #   $2: absolute path with file name of the .csv output file where all the barcodes will be listed. 
 #       Example: "/home/hugues_abriel/pipelines/vittoria/input/SCN5A_patients_rbk114.24/samplelist.hac.csv"
-#   $3: run id 
-#   $4: library (singular capital letter)
-#   $5: The column name of the type of raw data that will be given to the pipeline (i.e. 'fastq', 'bam', 
+#   $3: run id (like "run0")
+#   $4: library (singular capital letter, like "A")
+#   $5: The column name of the type of raw data that will be given to the pipeline (i.e. 'fastq', 'bam', 'fastq_folder' 
 #       look at schema_input.json flie for all possibilities. Look at filed "oneOf") 
 #   $6: "true" if barcode's files are organised in "barcode[0-9]{2}" folders and there is more than one file,
 #        "false" if there is only one file per folder 
