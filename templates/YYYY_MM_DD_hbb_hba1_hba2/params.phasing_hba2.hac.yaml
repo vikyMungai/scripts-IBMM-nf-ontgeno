@@ -1,0 +1,35 @@
+# General settings:
+#-----------------------
+outdir: "results/YYYY_MM_DD_hba2"
+
+# Sample details:
+#-----------------------
+input: "templates/YYYY_MM_DD_hbb_hba1_hba2/samplelist.hba2.csv"
+
+# References and intervals:
+#-----------------------
+fasta: "/home/user_ubuntu/data/references/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
+bed: "templates/YYYY_MM_DD_hbb_hba1_hba2/region.hba2.bed" 
+panel: "/home/user_ubuntu/bioinformatic_pipelines/vittoria/templates/YYYY_MM_DD_hbb_hba1_hba2/1kGP_high_coverage_Illumina.16_172000_174500.filtered.SNV_INDEL_SV_phased_panel.bcf" 
+
+# Filter settings:
+#-----------------------
+min_length: 100
+trim_length: 0
+store_trimmed: false
+min_mapq: 20
+min_coverage: 10
+
+# Workflow settings:
+#-----------------------
+basecalling_model: 'hac'
+# genotype_caller: 'bcftools'
+genotype_model: "/home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/assets/r1041_e82_400bps_hac_v520" # check that the model used is correct 
+glnexus_config: "/home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/assets/clair3.yml"
+
+# Annotation settings:
+#-----------------------
+genome: 'GRCh38'
+species: 'homo_sapiens'
+vep_cache_version: 113
+vep_cache: "/home/user_ubuntu/data/references/vep"

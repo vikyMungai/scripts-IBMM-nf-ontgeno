@@ -1,0 +1,8 @@
+sample,runid,library,fastq_folder
+barcode10,run0,A,/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/2026_06_11_hbb_hba1_hba2/hba1/barcode10
+barcode14,run0,A,/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/2026_06_11_hbb_hba1_hba2/hba1/barcode14
+barcode16,run0,A,/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/2026_06_11_hbb_hba1_hba2/hba1/barcode16
+barcode20,run0,A,/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/2026_06_11_hbb_hba1_hba2/hba1/barcode20
+barcode21,run0,A,/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/2026_06_11_hbb_hba1_hba2/hba1/barcode21
+barcode22,run0,A,/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/2026_06_11_hbb_hba1_hba2/hba1/barcode22
+barcode24,run0,A,/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/2026_06_11_hbb_hba1_hba2/hba1/barcode24

@@ -1,0 +1,3 @@
+sample,runid,library,fastq_folder,genotype_model
+barcode01,run0,A,/home/user_ubuntu/bioinformatic_pipelines/CFTR_analysis/data/raw_data/fake_CFTR_fastq/barcode01,/home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/assets/r1041_e82_400bps_hac_v520
+barcode02,run0,A,/home/user_ubuntu/bioinformatic_pipelines/CFTR_analysis/data/raw_data/fake_CFTR_fastq/barcode02,/home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/assets/r1041_e82_400bps_hac_v520
