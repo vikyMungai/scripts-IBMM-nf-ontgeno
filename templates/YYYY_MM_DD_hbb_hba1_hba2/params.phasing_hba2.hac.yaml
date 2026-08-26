@@ -4,13 +4,14 @@ outdir: "results/YYYY_MM_DD_hba2" # TODO: put the date of the experiment
 
 # Sample details:
 #-----------------------
-input: "templates/YYYY_MM_DD_hbb_hba1_hba2/samplelist.hba2.csv"   # TODO: add path of samplelist.*.csv file  
+input: "input/YYYY_MM_DD_hbb_hba1_hba2/samplelist.hba2.csv"   
 
 # References and intervals:
 #-----------------------
 fasta: "/home/user_ubuntu/data/references/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
-bed: "templates/YYYY_MM_DD_hbb_hba1_hba2/region.hba2.bed"    # TODO: add path bed file of the targeted gene(s) 
-panel: "/home/user_ubuntu/bioinformatic_pipelines/vittoria/templates/YYYY_MM_DD_hbb_hba1_hba2/1kGP_high_coverage_Illumina.16_172000_174500.filtered.SNV_INDEL_SV_phased_panel.bcf" # TODO: add path bed file of the targeted gene(s) 
+bed: "input/YYYY_MM_DD_hbb_hba1_hba2/region.hba2.bed"   
+# TODO: update the path of the .bcf file 
+panel: "/home/user_ubuntu/bioinformatic_pipelines/vittoria/templates/YYYY_MM_DD_hbb_hba1_hba2/1kGP_high_coverage_Illumina.16_172000_174500.filtered.SNV_INDEL_SV_phased_panel.bcf" 
 
 # Filter settings:
 #-----------------------
