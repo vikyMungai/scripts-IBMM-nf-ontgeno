@@ -25,7 +25,7 @@ To run the pipeline for this data (from inside `vittoria` folder):
 If you're not in the right folder, execute this: 
 ```
 # valid only locally 
-/home/user_ubuntu/bioinformatic_pipelines/vittoria
+cd /home/user_ubuntu/bioinformatic_pipelines/vittoria
 ```
 HBB
 ```

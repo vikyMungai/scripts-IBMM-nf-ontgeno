@@ -47,11 +47,11 @@ To run the pipeline for this data (from inside `vittoria` folder):
 If you're not in the right folder, execute this: 
 ```
 # valid only locally 
-/home/user_ubuntu/bioinformatic_pipelines/vittoria
+cd /home/user_ubuntu/bioinformatic_pipelines/vittoria
 ```
 HBB
 ```
-nextflow run /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/main.nf -c /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/local.config -params-file templates/YYYY_MM_DD_hbb_hba1_hba2/params.phasing_hba1.hac.yaml
+nextflow run /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/main.nf -c /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/local.config -params-file templates/YYYY_MM_DD_hbb_hba1_hba2/params.phasing_hbb.hac.yaml
 ```
 for HBA1
 ```
