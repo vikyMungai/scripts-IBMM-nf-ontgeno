@@ -10,7 +10,7 @@ input: "templates/YYYY_MM_DD_hbb_hba1_hba2/samplelist.hba1.csv"  # TODO: add pat
 #-----------------------
 fasta: "/home/user_ubuntu/data/references/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
 bed: "templates/YYYY_MM_DD_hbb_hba1_hba2/region.hba1.bed"  # TODO: add path bed file of the targeted gene(s) 
-panel: "/home/user_ubuntu/bioinformatic_pipelines/vittoria/templates/YYYY_MM_DD_hbb_hba1_hba2/1kGP_high_coverage_Illumina.16_176000_178000.filtered.SNV_INDEL_SV_phased_panel.bcf"  # TODO: add absolute path of panel for phasing 
+panel: "/home/user_ubuntu/bioinformatic_pipelines/vittoria/templates/YYYY_MM_DD_hbb_hba1_hba2/1kGP_high_coverage_Illumina.16_176000_178000.filtered.SNV_INDEL_SV_phased_panel.bcf" # TODO: add path bed file of the targeted gene(s) 
 
 # Filter settings:
 #-----------------------

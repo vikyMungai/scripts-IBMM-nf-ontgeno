@@ -4,13 +4,13 @@ outdir: "results/YYYY_MM_DD_CFTR" # TODO: put the date of the experiment
 
 # Sample details:
 #-----------------------
-input: "templates/YYYY_MM_DD_CFTR/samplelist.hac.csv" # TODO: add path of samplelist.*.csv file  
+input: "input/YYYY_MM_DD_CFTR/samplelist.hac.csv" # TODO: add path of samplelist.*.csv file  
 
 # References and intervals:
 #-----------------------
 fasta: "/home/user_ubuntu/data/references/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
 bed: "templates/YYYY_MM_DD_CFTR/region.cftr.bed" # TODO: add path bed file of the targeted gene(s) 
-panel: "/home/user_ubuntu/bioinformatic_pipelines/vittoria/templates/YYYY_MM_DD_CFTR/1kGP_high_coverage_Illumina.7_117470000_117680000.filtered.SNV_INDEL_SV_phased_panel.bcf" # TODO: add absolute path of panel for phasing 
+panel: "/home/user_ubuntu/bioinformatic_pipelines/vittoria/templates/YYYY_MM_DD_CFTR/1kGP_high_coverage_Illumina.7_117470000_117680000.filtered.SNV_INDEL_SV_phased_panel.bcf" # TODO: add path bed file of the targeted gene(s) 
 
 # Filter settings:
 #-----------------------
