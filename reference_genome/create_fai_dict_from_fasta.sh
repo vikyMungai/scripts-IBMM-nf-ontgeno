@@ -25,13 +25,13 @@ REF_FNA="${REF_FNA_ZIP%.*}"
 DICT_FILE="${REF_FNA%.*}.dict"
 
 
-#gzip -dk "${REF_FNA_ZIP}"
+gzip -dk "${REF_FNA_ZIP}"
 echo "the reference file was unzipped"
 
-#samtools faidx "${REF_FNA}"
+samtools faidx "${REF_FNA}"
 echo "the index of the reference file was created"
 
-#samtools dict "${REF_FNA}" --output ${DICT_FILE}
+samtools dict "${REF_FNA}" --output ${DICT_FILE}
 echo "the reference file's dictionary was created"
 
 # deactivate the environment 
