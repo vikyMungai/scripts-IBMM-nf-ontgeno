@@ -1,6 +1,6 @@
 # Genes and barcodes 
 The addressed gene is: 
-CFTR: ch7:117480025-117668665
+CFTR: ch7:117480025-117668665 - Feature: ENSG00000001626.20 - Gene: ENST00000003084.11
 
 ## Amplicons 
 For the CFTR it was used the following amplicons: 
