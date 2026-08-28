@@ -20,10 +20,10 @@
 #       barcode01,run0,A,/home/hugues_abriel/pipelines/vittoria/SCN5A_patients_rbk114.24/barcode01.fast.fastq.gz,/home/hugues_abriel/pipelines/nf-core-ontgeno/assets/r1041_e82_400bps_hac_v410
  
 # Example to execute the script (without genotype_model)
-# ./format_samplelist.sh "/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/SCN5A_Patients_NBD114.24" "/home/user_ubuntu/bioinformatic_pipelines/vittoria/input/trail_2026_05_12/samplelist.hac.csv" "run0" "A" "true"
+# ./format_samplelist.sh "/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/SCN5A_Patients_NBD114.24" "/home/user_ubuntu/bioinformatic_pipelines/vittoria/input/trail_2026_05_12/samplelist.hac.csv" "run0" "A" "fastq_folder" "true"
 
 # fake command line 
-# ./format_samplelist.sh "/home/vittoria_ubuntu/vittoria_mungai_folder/SCN5A_patients_rbk114.24"  "/home/vittoria_ubuntu/vittoria_mungai_folder/sample_list_folder/samplelist.hac.csv" "run0" "A" "true" "/home/vittoria_ubuntu/vittoria_mungai_folder/fake_genotype_folder/fake_genotype_model.txt"
+# ./format_samplelist.sh "/home/vittoria_ubuntu/vittoria_mungai_folder/SCN5A_patients_rbk114.24"  "/home/vittoria_ubuntu/vittoria_mungai_folder/sample_list_folder/samplelist.hac.csv" "run0" "A" "fastq_folder" "true" "/home/vittoria_ubuntu/vittoria_mungai_folder/fake_genotype_folder/fake_genotype_model.txt"
 
 DATA_DIR="$1"
 SAMPLELIST_FILE="$2"
