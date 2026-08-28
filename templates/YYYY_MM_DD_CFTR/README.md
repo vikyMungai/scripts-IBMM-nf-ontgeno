@@ -27,7 +27,7 @@ If you're not in the right folder, execute this:
 # valid only locally 
 cd /home/user_ubuntu/bioinformatic_pipelines/vittoria
 ```
-HBB
+CFTR
 ```
 nextflow run /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/main.nf -c /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/local.config -params-file templates/YYYY_MM_DD_CFTR/params.hac.yaml
 ```
