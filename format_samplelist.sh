@@ -12,8 +12,7 @@
 #        "false" if there is only one file per folder 
 #   $7: genotype model, absolute path for the genotype model (optional)
 
-# Output 
-#       in the $1 directory will be created a file barcode*.fast.fastq.gz for each bardcode. 
+# Output
 #       the file $2 will be created with one row for each barcode in this format: 
 #
 #       sample,runid,library,fastq,genotype_model
