@@ -4,7 +4,7 @@ outdir: "results/YYYY_MM_DD_hbb"  # TODO: put the date of the experiment
 
 # Sample details:
 #-----------------------
-input: "input/YYYY_MM_DD_hbb_hba1_hba2/samplelist.hbb.csv"
+input: "input/YYYY_MM_DD_hbb_hba1_hba2/samplelist.hbb.csv"  # TODO: put the date of the experiment 
 
 # References and intervals:
 #-----------------------
