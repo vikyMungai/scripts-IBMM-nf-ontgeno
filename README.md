@@ -6,9 +6,13 @@
     |   └── create_fai_dict_from_fasta.sh 
     |
     ├── templates
-        ├── general_instructions_CFTR.md
+    |   ├── general_instructions_CFTR.md
     |   ├── YYYY_MM_DD_CFTR
     |   └── YYYY_MM_DD_hbb_hba1_hba2
+    |
+    ├── variant_calling
+    |   ├── merge_annotated_phased_vcf.py
+    |   └── merge_annotated_phased_vcf.sh
     |   
     ├── debug_pipeline_cmds.md 
     ├── format_bed_file.sh 
@@ -26,6 +30,10 @@ The script `create_fai_dict_from_fasta.sh` is used to create the indexed fasta f
 #### templates
 The templates containes the folders that can be used as a starting point for specific experiments. By the name we know what genes are analysed. 
 It is supposed that amplicon sequencing with nanopore has been done to obtain the sequencing. 
+
+#### variant calling 
+This is used to merge the .phased.vcf file and the annotated.tab files generated correspectively by whatsap and vep in the pipeline nf-ontgeno. So, that we have in one single file the phasing and the annotation. 
+This is doen for each barcode. 
 
 #### other files
 - debug_pipeline_cmds.sh: it contains useful commands to debug errors of the pipeline.
@@ -52,3 +60,8 @@ to deactivate the environment use
 micromamba deactivate
 ```
 
+# Poetry 
+Look at this website to install it 
+https://python-poetry.org/docs/#installing-with-the-official-installer
+
+`curl -sSL https://install.python-poetry.org | python3 -`

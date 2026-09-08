@@ -2,7 +2,6 @@
 
 # Params
 #   $1: reference fasta file zipped (absolute path) 
-#   $2: output directory (absolute path)
 
 # Output 
 #       It creates the .fai and .dict of the reference given
