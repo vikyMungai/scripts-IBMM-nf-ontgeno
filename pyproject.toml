@@ -1,0 +1,18 @@
+[project]
+name = "scripts"
+version = "1.0.0"
+description = "scripts to execute donwstream analysis with nf-ontgeno pipeline"
+authors = [
+    {name = "vmungai"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "requests (>=2.34.2,<3.0.0)",
+    "cyvcf2 (>=0.34.0,<0.35.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
