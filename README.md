@@ -12,7 +12,7 @@
     |
     ├── variant_calling
     |   ├── merge_annotated_phased_vcf.py
-    |   └── merge_annotated_phased_vcf.sh
+    |   └── merge_annotated_phased_vcf.sh 
     |   
     ├── debug_pipeline_cmds.md 
     ├── format_bed_file.sh 
@@ -34,6 +34,9 @@ It is supposed that amplicon sequencing with nanopore has been done to obtain th
 #### variant calling 
 This is used to merge the .phased.vcf file and the annotated.tab files generated correspectively by whatsap and vep in the pipeline nf-ontgeno. So, that we have in one single file the phasing and the annotation. 
 This is doen for each barcode. 
+**It requires to be executed in the micromamba env**
+
+To do this you need just to execute the .sh file (the .py file is invoked by the bash script) 
 
 #### other files
 - debug_pipeline_cmds.sh: it contains useful commands to debug errors of the pipeline.
@@ -60,8 +63,4 @@ to deactivate the environment use
 micromamba deactivate
 ```
 
-# Poetry 
-Look at this website to install it 
-https://python-poetry.org/docs/#installing-with-the-official-installer
 
-`curl -sSL https://install.python-poetry.org | python3 -`

@@ -15,6 +15,7 @@
 
 
 remove_headers(){
+    # NB: this function is not used at the moment 
     # Params
     #   $1: list of files that needs to be filtered 
     #   $2: input directory where the files are 
@@ -49,29 +50,19 @@ PHASED_FILTERED_FOLDER="phased_filtered"
 INPUT_DIR="$1"
 IN_ANN_DIR="${INPUT_DIR}/${ANN_FOLDER}"
 IN_PHASED_DIR="${INPUT_DIR}/${PHASED_FOLDER}"
-# output directories 
+# output directory
 OUT_DIR="${INPUT_DIR}/${ANN_AND_PHASED_FOLDER}"
-OUT_ANN_DIR="${INPUT_DIR}/${ANN_AND_PHASED_FOLDER}/${ANN_FILTERED_FOLDER}"
-OUT_PHASED_DIR="${INPUT_DIR}/${ANN_AND_PHASED_FOLDER}/${PHASED_FILTERED_FOLDER}"
 
 # create the output directories 
 if [[ ! -d "$OUT_DIR" ]]; then
     mkdir "$OUT_DIR"
-fi 
-if [[ ! -d "$OUT_ANN_DIR" ]]; then
-    mkdir "$OUT_ANN_DIR"
-fi 
-if [[ ! -d "$OUT_PHASED_DIR" ]]; then
-    mkdir "$OUT_PHASED_DIR"
+    echo "create directory $OUT_DIR \n"
+else
+    echo "output directory already exists"
+    echo "$OUT_DIR \n"
 fi 
 
 
-ANN_FILES=$(ls $IN_ANN_DIR | grep -E ".annotated.tab.gz$")
-PHASED_FILES=$(ls $IN_PHASED_DIR | grep -E ".phased.vcf.gz$")
+echo "Invoking python script...\n"
 
-remove_headers "$ANN_FILES" "$IN_ANN_DIR" "$OUT_ANN_DIR"
-remove_headers "$PHASED_FILES" "$IN_PHASED_DIR" "$OUT_PHASED_DIR"
-
-echo "Files filtered, invoking python script..."
-
-poetry run python3 ./variant_calling/merge_annotated_phased_vcf.py "$OUT_DIR" "$OUT_ANN_DIR" "$OUT_PHASED_DIR"
+python3 ./variant_calling/merge_annotated_phased_vcf.py "$OUT_DIR" "$IN_ANN_DIR" "$IN_PHASED_DIR"
