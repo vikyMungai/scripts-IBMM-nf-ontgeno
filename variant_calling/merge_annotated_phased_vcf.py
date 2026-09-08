@@ -211,7 +211,7 @@ if __name__ == "__main__":
     # create the merged file for all barcodes 
     for barcode in annotated_dict.keys(): 
         filename = barcode + merged_suffix
-        merged_file = os.path.join(annotated_dir, filename)
+        merged_file = os.path.join(out_dir, filename)
         print("creazione del file per il ", barcode)
 
         merge_annotation_phased(
