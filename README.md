@@ -5,6 +5,9 @@
     ├── reference_genome
     |   └── create_fai_dict_from_fasta.sh 
     |
+    ├── simplified_scripts
+    |   └── format_samplelist.sh 
+    |
     ├── templates
     |   ├── general_instructions_CFTR.md
     |   ├── YYYY_MM_DD_CFTR
@@ -30,6 +33,10 @@ The script `create_fai_dict_from_fasta.sh` is used to create the indexed fasta f
 #### templates
 The templates containes the folders that can be used as a starting point for specific experiments. By the name we know what genes are analysed. 
 It is supposed that amplicon sequencing with nanopore has been done to obtain the sequencing. 
+
+#### simplified_scripts dir 
+They are script already existing but adjusted for specific purposes, so that are easier to run for non bioinformaticians but less flexible. 
+
 
 #### variant calling 
 This is used to merge the .phased.vcf file and the annotated.tab files generated correspectively by whatsap and vep in the pipeline nf-ontgeno. So, that we have in one single file the phasing and the annotation. 
