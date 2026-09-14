@@ -9,7 +9,7 @@ input: "input/YYYY_MM_DD_hbb_hba1_hba2/samplelist.hba2.csv"  # TODO: put the dat
 # References and intervals:
 #-----------------------
 fasta: "/home/user_ubuntu/data/references/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
-bed: "input/YYYY_MM_DD_hbb_hba1_hba2/region.hba2.bed"   
+bed: "input/YYYY_MM_DD_hbb_hba1_hba2/region.hba2.bed"    # TODO: put the date of the experiment 
 # TODO: update the path of the .bcf file 
 panel: "/home/user_ubuntu/bioinformatic_pipelines/vittoria/templates/YYYY_MM_DD_hbb_hba1_hba2/1kGP_high_coverage_Illumina.16_172000_174500.filtered.SNV_INDEL_SV_phased_panel.bcf" 
 
