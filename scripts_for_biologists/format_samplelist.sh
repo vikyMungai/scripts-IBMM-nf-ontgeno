@@ -4,25 +4,15 @@
 #   $1: input directory, where the barcode* folders are 
 #   $2: absolute path with file name of the .csv output file where all the barcodes will be listed. 
 #       Example: "/home/hugues_abriel/pipelines/vittoria/input/SCN5A_patients_rbk114.24/samplelist.hac.csv"
-#   $3: run id (like "run0")
-#   $4: library (singular capital letter, like "A")
-#   $5: The column name of the type of raw data that will be given to the pipeline (i.e. 'fastq', 'bam', 'fastq_folder' 
-#       look at schema_input.json flie for all possibilities. Look at filed "oneOf") 
-#   $6: "true" if barcode's files are organised in "barcode[0-9]{2}" folders and there is more than one file,
-#        "false" if there is only one file per folder 
-#   $7: genotype model, absolute path for the genotype model (optional)
 
 # Output
 #       the file $2 will be created with one row for each barcode in this format: 
 #
-#       sample,runid,library,fastq,genotype_model
-#       barcode01,run0,A,/home/hugues_abriel/pipelines/vittoria/SCN5A_patients_rbk114.24/barcode01.fast.fastq.gz,/home/hugues_abriel/pipelines/nf-core-ontgeno/assets/r1041_e82_400bps_hac_v410
+#       sample,runid,library,fastq
+#       barcode01,run0,A,/home/hugues_abriel/pipelines/vittoria/SCN5A_patients_rbk114.24/barcode01.fast.fastq.gz
  
-# Example to execute the script (without genotype_model)
-# ./scripts-IBMM-nf-ontgeno/format_samplelist.sh "/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/SCN5A_Patients_NBD114.24" "/home/user_ubuntu/bioinformatic_pipelines/vittoria/input/trail_2026_05_12/samplelist.hac.csv" "run0" "A" "fastq_folder" "true"
-
-# fake command line with genotype model
-# ./scripts-IBMM-nf-ontgeno/format_samplelist.sh "/home/vittoria_ubuntu/vittoria_mungai_folder/SCN5A_patients_rbk114.24"  "/home/vittoria_ubuntu/vittoria_mungai_folder/sample_list_folder/samplelist.hac.csv" "run0" "A" "fastq_folder" "true" "/home/vittoria_ubuntu/vittoria_mungai_folder/fake_genotype_folder/fake_genotype_model.txt"
+# Example to execute the script 
+# ./scripts-IBMM-nf-ontgeno/format_samplelist.sh "/home/user_ubuntu/bioinformatic_pipelines/vittoria/data/raw_data/SCN5A_Patients_NBD114.24" "/home/user_ubuntu/bioinformatic_pipelines/vittoria/input/trail_2026_05_12/samplelist.hac.csv"
 
 DATA_DIR="$1"
 SAMPLELIST_FILE="$2"
@@ -30,10 +20,6 @@ RUN_ID="run0"
 LIBRARY="A"
 DATA_TYPE="fastq_folder"
 FOLDERS_FLAG="true"
-
-if [ "$#" -eq 7 ]; then 
-    GENOTYPE_MODEL="$7"
-fi
 
 cd $DATA_DIR
 

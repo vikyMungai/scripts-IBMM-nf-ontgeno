@@ -2,10 +2,18 @@
 
 ## Structure 
     |
+    ├── variant_calling
+    |    ├── format_bed_file.sh 
+    |    ├── format_samplelist.sh
+    |    ├── get_phasing_panel_chrX.sh
+    |    ├── get_phasing_panel_with_chr.sh
+    |    ├── get_phasing_panel.sh
+    |    └── remove_chr_from_reference_fasta.sh 
+    |
     ├── reference_genome
     |   └── create_fai_dict_from_fasta.sh 
     |
-    ├── simplified_scripts
+    ├── scripts_for_biologists
     |   └── format_samplelist.sh 
     |
     ├── templates
@@ -17,14 +25,7 @@
     |   ├── merge_annotated_phased_vcf.py
     |   └── merge_annotated_phased_vcf.sh 
     |   
-    ├── debug_pipeline_cmds.md 
-    ├── format_bed_file.sh 
-    ├── format_samplelist.sh
-    ├── get_phasing_panel_chrX.sh
-    ├── get_phasing_panel_with_chr.sh
-    ├── get_phasing_panel.sh
-    └── remove_chr_from_reference_fasta.sh 
-
+    └── debug_pipeline_cmds.md 
 
 
 #### reference_genome dir 
@@ -34,7 +35,7 @@ The script `create_fai_dict_from_fasta.sh` is used to create the indexed fasta f
 The templates containes the folders that can be used as a starting point for specific experiments. By the name we know what genes are analysed. 
 It is supposed that amplicon sequencing with nanopore has been done to obtain the sequencing. 
 
-#### simplified_scripts dir 
+#### scripts_for_biologists dir 
 They are script already existing but adjusted for specific purposes, so that are easier to run for non bioinformaticians but less flexible. 
 
 
@@ -69,5 +70,5 @@ to deactivate the environment use
 ```
 micromamba deactivate
 ```
-
+In some casese the environment activation and deactivation is inside the script itself. 
 

@@ -20,6 +20,21 @@ barcodes with good coverage:
 barcodes with bad coverage: 
 - barcode ...
 
+
+# Create samplesheet 
+Execute this command from the `bioinformatic_pipelines` directory 
+
+Copy paste the lines with the variables in the terminal first. Then execute the command. 
+- DATA_PATH is the absolute path where there barcode folders are 
+- SAMPLESHEET_PATH is the absolute path of the samplelis.*.csv 
+
+```shell 
+DATA_PATH=""
+SAMPLESHEET_PATH=""
+./scripts-IBMM-nf-ontgeno/scripts_for_biologists/format_samplelist.sh "$DATA_PATH" "$SAMPLE_SHEETPATH"
+```
+
+
 # Run the pipeline 
 To run the pipeline for this data (from inside `vittoria` folder): 
 If you're not in the right folder, execute this: 
@@ -28,12 +43,10 @@ If you're not in the right folder, execute this:
 cd /home/user_ubuntu/bioinformatic_pipelines/vittoria
 ```
 CFTR
-```
+```shell
 nextflow run /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/main.nf -c /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/local.config -params-file templates/YYYY_MM_DD_CFTR/params.hac.yaml
 ```
 
 TODO: update the path of the `-params-file` for an actual run the path for a .ymal file is "input/*.yaml"
 
-## Additional information 
-I used the bcftools instead of clair3 for all HBA1, because it was giving an error as it was not identifying any variant and not creating the .vcf file. This would have than cause the pipeline to crash. 
 
