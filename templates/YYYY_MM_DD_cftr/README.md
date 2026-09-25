@@ -31,7 +31,7 @@ Copy paste the lines with the variables in the terminal first. Then execute the 
 ```shell 
 DATA_PATH=""
 SAMPLESHEET_PATH=""
-./scripts-IBMM-nf-ontgeno/scripts_for_biologists/format_samplelist.sh "$DATA_PATH" "$SAMPLE_SHEETPATH"
+./scripts-IBMM-nf-ontgeno/scripts_for_biologists/format_samplelist.sh "$DATA_PATH" "$SAMPLESHEET_PATH"
 ```
 
 

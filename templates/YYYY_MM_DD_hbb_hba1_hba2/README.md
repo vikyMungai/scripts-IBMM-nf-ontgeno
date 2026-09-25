@@ -55,21 +55,21 @@ for HBB
 ```shell 
 DATA_PATH=""
 SAMPLESHEET_PATH=""
-./scripts-IBMM-nf-ontgeno/scripts_for_biologists/format_samplelist.sh "$DATA_PATH" "$SAMPLE_SHEETPATH"
+./scripts-IBMM-nf-ontgeno/scripts_for_biologists/format_samplelist.sh "$DATA_PATH" "$SAMPLESHEET_PATH"
 ```
 
 for HBA2
 ```shell
 DATA_PATH=""
 SAMPLESHEET_PATH=""
-./scripts-IBMM-nf-ontgeno/scripts_for_biologists/format_samplelist.sh "$DATA_PATH" "$SAMPLE_SHEETPATH"
+./scripts-IBMM-nf-ontgeno/scripts_for_biologists/format_samplelist.sh "$DATA_PATH" "$SAMPLESHEET_PATH"
 ```
 
 for HBA1 
 ```shell 
 DATA_PATH=""
 SAMPLESHEET_PATH=""
-./scripts-IBMM-nf-ontgeno/scripts_for_biologists/format_samplelist.sh "$DATA_PATH" "$SAMPLE_SHEETPATH"
+./scripts-IBMM-nf-ontgeno/scripts_for_biologists/format_samplelist.sh "$DATA_PATH" "$SAMPLESHEET_PATH"
 ```
 
 # Run the pipeline 
