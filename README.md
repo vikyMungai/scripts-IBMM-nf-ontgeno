@@ -97,5 +97,5 @@ git pull origin main
 
 It will open a text editor in the terminal, after the commmented lines (starting with "#"), write this: 
 ```
-update with changes done from the author
+update with changes done by the author
 ``` 
