@@ -44,7 +44,7 @@ cd /home/user_ubuntu/bioinformatic_pipelines/vittoria
 ```
 CFTR
 ```shell
-nextflow run /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/main.nf -c /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/local.config -params-file templates/YYYY_MM_DD_CFTR/params.hac.yaml
+nextflow run /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/main.nf -c /home/user_ubuntu/bioinformatic_pipelines/nf-ontgeno/local.config -params-file templates/YYYY_MM_DD_cftr/params.hac.yaml
 ```
 
 TODO: update the path of the `-params-file` for an actual run the path for a .ymal file is "input/*.yaml"

@@ -18,7 +18,7 @@
     |
     ├── templates
     |   ├── general_instructions_CFTR.md
-    |   ├── YYYY_MM_DD_CFTR
+    |   ├── YYYY_MM_DD_cftr
     |   └── YYYY_MM_DD_hbb_hba1_hba2
     |
     ├── variant_calling
