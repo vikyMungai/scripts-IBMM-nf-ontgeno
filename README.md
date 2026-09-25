@@ -72,3 +72,25 @@ micromamba deactivate
 ```
 In some casese the environment activation and deactivation is inside the script itself. 
 
+# To update the repository 
+Execute inside the folder `scripts-IBMM-nf-ontgeno`
+```shell 
+cd 
+cd bioinformatic_pipelines/scripts-IBMM-nf-ontgeno
+```
+
+Chech that you have the right origin: 
+execute the command 
+```shell 
+git remote -v 
+```
+you should obtain 
+```shell 
+origin  git@github.com:vikyMungai/scripts-IBMM-nf-ontgeno.git (fetch)
+origin  git@github.com:vikyMungai/scripts-IBMM-nf-ontgeno.git (push)
+```
+
+If it matches, update the pipeline with: 
+```shell 
+git pull origin main 
+```
