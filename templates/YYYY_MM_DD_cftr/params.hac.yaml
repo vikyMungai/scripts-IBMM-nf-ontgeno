@@ -1,16 +1,16 @@
 # General settings:
 #-----------------------
-outdir: "results/YYYY_MM_DD_CFTR" # TODO: put the date of the experiment 
+outdir: "results/YYYY_MM_DD_cftr" # TODO: put the date of the experiment 
 
 # Sample details:
 #-----------------------
-input: "input/YYYY_MM_DD_CFTR/samplelist.hac.csv"  # TODO: put the date of the experiment 
+input: "input/YYYY_MM_DD_cftr/samplelist.hac.csv"  # TODO: put the date of the experiment 
 # References and intervals:
 #-----------------------
 fasta: "/home/user_ubuntu/data/references/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
-bed: "input/YYYY_MM_DD_CFTR/region.cftr.bed"   # TODO: put the date of the experiment 
+bed: "input/YYYY_MM_DD_cftr/region.cftr.bed"   # TODO: put the date of the experiment 
 # TODO: update the path of the .bcf file 
-panel: "/home/user_ubuntu/bioinformatic_pipelines/vittoria/templates/YYYY_MM_DD_CFTR/1kGP_high_coverage_Illumina.7_117470000_117680000.filtered.SNV_INDEL_SV_phased_panel.bcf" 
+panel: "/home/user_ubuntu/bioinformatic_pipelines/vittoria/templates/YYYY_MM_DD_cftr/1kGP_high_coverage_Illumina.7_117470000_117680000.filtered.SNV_INDEL_SV_phased_panel.bcf" 
 
 # Filter settings:
 #-----------------------
