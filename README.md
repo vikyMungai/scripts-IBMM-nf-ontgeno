@@ -94,3 +94,8 @@ If it matches, update the pipeline with:
 ```shell 
 git pull origin main 
 ```
+
+It will open a text editor in the terminal, after the commmented lines (starting with "#"), write this: 
+```
+update with changes done from the author
+``` 
