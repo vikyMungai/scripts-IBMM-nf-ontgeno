@@ -9,7 +9,7 @@
 # NB: execute the script from the directory of the repository 
 
 # Example to execute it 
-# ./variant_calling/merge_annotated_phased_vcf.sh "$INPUT_DIR" 
+# ./scripts-IBMM-nf-ontgeno/variant_calling/merge_annotated_phased_vcf.sh "$INPUT_DIR" 
 # with 
 # INPUT_DIR="/home/user_ubuntu/bioinformatic_pipelines/vittoria/results/2026_06_04_hbb_hba2_phasing_hbb"
 
@@ -62,7 +62,19 @@ else
     echo "$OUT_DIR \n"
 fi 
 
+CURR_DIR=$(pwd)
+# activate micromamba nf-core environment to have samtools 
+cd 
+cd programs/micromamba/
+source bin/init.sh 
+micromamba activate nf-core
+cd 
+cd ${CURR_DIR}
+
 
 echo "Invoking python script...\n"
 
 python3 ./variant_calling/merge_annotated_phased_vcf.py "$OUT_DIR" "$IN_ANN_DIR" "$IN_PHASED_DIR"
+
+# deactivate the environment 
+micromamba deactivate
