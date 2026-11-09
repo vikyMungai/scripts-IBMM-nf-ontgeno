@@ -1,6 +1,7 @@
 import sys
 import os 
 import pandas as pd
+import xlsxwriter
 import gzip
 import re 
 
@@ -86,24 +87,28 @@ def from_annotated_tab_to_dataframe(annotated_file):
             dtype=str
         )
 
-    # split column "Uploaded_variation"
+    # only if the dataframe has some data we process it 
+    if (annotation_df.shape[0] > 0):
 
-    # separate CHROM, POS, REF/ALT
-    split_columns = annotation_df["Uploaded_variation"].str.split(
-        "_", n=3, expand=True
-    )
+        # split column "Uploaded_variation"                          
+        # separate CHROM, POS, REF/ALT
+        split_columns = annotation_df["Uploaded_variation"].str.split(
+            "_", n=3, expand=True
+        )
 
-    # add columns for CHROM, POS, REF and ALT to enable the join with the *.phased.vcf file 
-    annotation_df["CHROM"] = split_columns[0]
-    annotation_df["POS"] = pd.to_numeric(split_columns[1])
-    
-    # split REF and ALT in two different columns 
-    ref_alt = split_columns[2].str.split("/", n=1, expand=True)
+        # add columns for CHROM, POS, REF and ALT to enable the join with the *.phased.vcf file 
+        annotation_df["CHROM"] = split_columns[0]
+        annotation_df["POS"] = pd.to_numeric(split_columns[1])
+        
+        # split REF and ALT in two different columns 
+        ref_alt = split_columns[2].str.split("/", n=1, expand=True)
 
-    annotation_df["REF"] = ref_alt[0]
-    annotation_df["ALT"] = ref_alt[1]
+        annotation_df["REF"] = ref_alt[0]
+        annotation_df["ALT"] = ref_alt[1]
 
+        
     return(annotation_df)
+
 
 
 def merge_annotation_phased(phased_file, annotated_file, merged_file):
@@ -121,29 +126,38 @@ def merge_annotation_phased(phased_file, annotated_file, merged_file):
     """
 
     phased_df = from_phased_vcf_to_dataframe(phased_file)
+    # check that the dataframe has data (so that the vcf is not empty)
+    phased_rows = phased_df.shape[0]
 
     annotation_df = from_annotated_tab_to_dataframe(annotated_file)
+    
+    # check that the dataframe has data (so that the vcf is not empty)
+    annotated_rows = annotation_df.shape[0]
 
-    merged_df = annotation_df.merge(
-        phased_df,
-        on=["CHROM", "POS", "REF", "ALT"],
-        how="left",
-        validate="many_to_one"
-    )
+    if (phased_rows > 0 and annotated_rows > 0):
+        merged_df = annotation_df.merge(
+            phased_df,
+            on=["CHROM", "POS", "REF", "ALT"],
+            how="left",
+            validate="many_to_one"
+        )
 
-    merged_df = merged_df.drop(columns= ["CHROM", "POS", "REF", "ALT"]) 
+        merged_df = merged_df.drop(columns= ["CHROM", "POS", "REF", "ALT"]) 
 
-    # save the merged DataFrames in a single csv file 
-    merged_df.to_csv(
-        merged_file,
-        sep="\t",
-        index=False
-    )
+        # save the merged DataFrames in a single csv file 
+        merged_df.to_excel(
+            merged_file,
+            sheet_name="annotated_phased_vcf", 
+            engine="xlsxwriter"
+        )
 
-    print(f"Output written to: {merged_file}")
-    # check that the joining was successful (the number of the rows must match)
-    print(f"Annotated rows: {len(annotation_df)}")
-    print(f"Merged rows:    {len(merged_df)}\n")
+        print(f"Output written to: {merged_file}")
+        # check that the joining was successful (the number of the rows must match)
+        print(f"Annotated rows: {len(annotation_df)}")
+        print(f"Merged rows:    {len(merged_df)}\n")
+    else: 
+        print("Error: it was not possible to merge the 2 files ")
+        print(f"The phased.vcf has {phased_rows} variants and the annotated vcf has {annotated_rows} variants.")
 
 
 def get_files_list(dir, suffix):
@@ -189,7 +203,7 @@ if __name__ == "__main__":
 
     annotated_suffix = ".annotated.tab.gz"
     phased_suffix = ".phased.vcf.gz"
-    merged_suffix = ".annotated_phased.tab"
+    merged_suffix = ".annotated_phased.xlsx"
 
     print("OUTPUT DIRECTORY:", out_dir)
     print("DIRECTORY annotated files:", annotated_dir)

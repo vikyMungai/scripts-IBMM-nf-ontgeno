@@ -2,12 +2,13 @@
 
 ## Structure 
     |
-    ├── variant_calling
+    ├── configuration_pipeline
     |    ├── format_bed_file.sh 
     |    ├── format_samplelist.sh
     |    ├── get_phasing_panel_chrX.sh
     |    ├── get_phasing_panel_with_chr.sh
     |    ├── get_phasing_panel.sh
+    |    ├── merge_fastq_files.sh
     |    └── remove_chr_from_reference_fasta.sh 
     |
     ├── reference_genome
@@ -27,12 +28,20 @@
     |   
     └── debug_pipeline_cmds.md 
 
+#### configuration_files dir 
+- format_bed_file.sh: it checks if a created .bed file is well formatted 
+- format_samplelist.sh: it writes into a samplelist.*.csv file the list of samples that need to be analysed by the pipeline 
+- get_phasing_panel_chrX.sh: it creates the panel for the chromosome X, but without the "chr" prefix. (which is compatible with the reference genome /home/user_ubuntu/data/references/Homo_sapiens.GRCh38.dna.primary_assembly.fa)
+- get_phasing_panel_with_chr.sh: it creates the panel for the needed region with the "chr" prefix. The panels geenrated with this script are comaptible with the reference genome from the nanopore company "GCA_000001405.15_GRCh38_no_alt_analysis_set.fna" 
+- merge_fastq_files.sh: merges the fastq files of different barcodes that belong to the same sample. This is needed to give as input the files post-basecalled (with SUP for example) to the nf-ontgeno pipeline, because fastq files of different barcodes have teh same naming.  
+- get_phasing_panel.sh: it creates the panel for the needed region without the "chr" prefix, compatible with the reference genome /home/user_ubuntu/data/references/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+- remove_chr_from_reference_fasta.sh: it removes the "chr" prefix from the reference genome .fna (not used for the default usage of the nf-ontgeno pipeline)
 
 #### reference_genome dir 
 The script `create_fai_dict_from_fasta.sh` is used to create the indexed fasta file and the .dict file from a reference genome .fna 
 
-#### templates
-The templates containes the folders that can be used as a starting point for specific experiments. By the name we know what genes are analysed. 
+#### templates dir 
+The dir templates containes the folders that can be used as a starting point for specific experiments. By the name we know what genes are analysed. 
 It is supposed that amplicon sequencing with nanopore has been done to obtain the sequencing. 
 
 #### scripts_for_biologists dir 
@@ -40,11 +49,12 @@ They are script already existing but adjusted for specific purposes, so that are
 
 
 #### variant calling 
-This is used to merge the .phased.vcf file and the annotated.tab files generated correspectively by whatsap and vep in the pipeline nf-ontgeno. So, that we have in one single file the phasing and the annotation. 
-This is doen for each barcode. 
-**It requires to be executed in the micromamba env**
+This is used to merge the .phased.vcf file and the annotated.tab files generated correspectively by `whatsap` and `vep` in the pipeline nf-ontgeno. So, that we have in one single file the phasing and the annotation. 
+This is done for each barcode. 
+It generate a .xlsx sheet for each barcode in the directory `annotated_and_phased` inside the output dir of the experiment. 
+**It requires to be executed in the micromamba env**, which is included in the script 
 
-To do this you need just to execute the .sh file (the .py file is invoked by the bash script) 
+To do this you need just to execute the .sh file (the .py file is invoked by the bash script). 
 
 #### other files
 - debug_pipeline_cmds.sh: it contains useful commands to debug errors of the pipeline.
@@ -71,6 +81,15 @@ to deactivate the environment use
 micromamba deactivate
 ```
 In some casese the environment activation and deactivation is inside the script itself. 
+
+The dependencies that have been installed are: 
+```shell
+micromamba install bcftools tabix
+micromamba install samtools
+# for the script in the repository scripts-IBMM-nf-ontgeno
+micromamba install pandas
+micromamba install xlsxwriter
+```
 
 # To update the repository 
 Execute inside the folder `scripts-IBMM-nf-ontgeno`

@@ -9,7 +9,7 @@
 # NB: execute the script from the directory of the repository 
 
 # Example to execute it 
-# ./scripts-IBMM-nf-ontgeno/variant_calling/merge_annotated_phased_vcf.sh "$INPUT_DIR" 
+# ./variant_calling/merge_annotated_phased_vcf.sh "$INPUT_DIR" 
 # with 
 # INPUT_DIR="/home/user_ubuntu/bioinformatic_pipelines/vittoria/results/2026_06_04_hbb_hba2_phasing_hbb"
 
@@ -56,7 +56,8 @@ OUT_DIR="${INPUT_DIR}/${ANN_AND_PHASED_FOLDER}"
 # create the output directories 
 if [[ ! -d "$OUT_DIR" ]]; then
     mkdir "$OUT_DIR"
-    echo "create directory $OUT_DIR \n"
+    echo "create directory $OUT_DIR"
+    echo
 else
     echo "output directory already exists"
     echo "$OUT_DIR \n"
@@ -72,7 +73,8 @@ cd
 cd ${CURR_DIR}
 
 
-echo "Invoking python script...\n"
+echo "Invoking python script..."
+echo
 
 python3 ./variant_calling/merge_annotated_phased_vcf.py "$OUT_DIR" "$IN_ANN_DIR" "$IN_PHASED_DIR"
 
